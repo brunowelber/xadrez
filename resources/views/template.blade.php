@@ -10,8 +10,8 @@
 	<header>
 		<h1>{{ $title }}</h1>
 		<nav>
-		<a href="{{ route("jogador.create") }}" title="Novo jogador">Cadastrar Jogador</a>
-		</nav>
+		<a href="{{ url("/jogadores") }}" title="Jogadores do Jogax">Jogadores</a>
+				</nav>
 		</header>
 		<main>
 		@yield('conteudo')

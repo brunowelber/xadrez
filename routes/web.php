@@ -12,3 +12,4 @@
 */
 Route::get("/","JogadorController@index");
 Route::resource("jogador","JogadorController");
+route::get("/jogadores","JogadorController@index");
