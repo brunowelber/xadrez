@@ -19,3 +19,7 @@ route::get("/jogadores","JogadorController@index");
 /* Rotas da partida */
 Route::resource("partida","PartidaController");
 route::get("/partidas","PartidaController@index");
+
+/* Rotas dos comentários */
+Route::resource("comentario","ComentarioController")->except(["index","show","create","store"]);
+Route::post("/comentario/{jogador}","ComentarioController@store");

@@ -14,7 +14,21 @@
 </form>
 		</div>
 		</div>
-		
+<h3>Comentários</h3>
+@forelse($jogador->comentarios as $comentario)
+<p>{{ $comentario->comentario }}</p>
+@empty		
+		<p class="text-center">Não existem comentários para esse jogador</p>
+		@endforelse
+		<h4>Novo comentário</h4>
+<form action="{{ url("/comentario/".$jogador->id) }}" method="post">	
+		@csrf
+		<div class="form-group">
+		<label for="comentario">Comentário</label>
+		<textarea name="comentario" id="comentario" col="40" row="2" class="form-control"></textarea>
+		<button type="submit" class="btn">Cadastrar</button>
+		</div>
+		</form>
 		
 		@endsection
 		

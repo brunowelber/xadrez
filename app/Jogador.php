@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -26,10 +25,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Jogador extends Model
 {
+
     protected $table = "jogadores";
-    
-    public function partidas(){
+
+    public function partidas()
+    {
         return $this->belongsToMany('App\Partida');
     }
-    
+
+    public function comentarios()
+    {
+        return $this->hasMany("App\Comentario");
+    }
 }
