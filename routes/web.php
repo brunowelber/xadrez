@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/* Rotas do jogador */
 Route::get("/","JogadorController@index");
 Route::resource("jogador","JogadorController");
 route::get("/jogadores","JogadorController@index");
+
+/* Rotas da partida */
+Route::resource("partida","PartidaController");
+route::get("/partidas","PartidaController@index");

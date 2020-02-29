@@ -11,6 +11,7 @@
 		<h1>{{ $title }}</h1>
 		<nav>
 		<a href="{{ url("/jogadores") }}" title="Jogadores do Jogax">Jogadores</a>
+		<a href="{{ url("/partidas") }}" title="Partidas cadastradas no Jogax">Partidas</a>
 				</nav>
 		</header>
 		<main>
