@@ -17,6 +17,9 @@
 		<main>
 		@yield('conteudo')
 		</main>
+		<footer>
+		<p><br/>Jogax a sua mente em um movimento<br/></p>
+		</footer>
 		</div>
 </body>
 </html>

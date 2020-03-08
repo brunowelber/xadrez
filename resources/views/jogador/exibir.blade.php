@@ -15,10 +15,18 @@
 		</div>
 		</div>
 <h3>Comentários</h3>
-@forelse($jogador->comentarios as $comentario)
-<p>{{ $comentario->comentario }}</p>
+@forelse($jogador->comentarios()->orderBy("id","desc")->get() as $comentario)
+<p id="{{ $loop->iteration }}">
+{{ $loop->remaining+1 }}. {{ $comentario->created_at->format("d/m/Y \a\s H:i") }}<br/>
+{{ $comentario->comentario }}
+</p>
+<form action="{{ route("comentario.destroy",[$comentario->id]) }}" method="post">
+@csrf
+@method("delete")
+<button aria-describedby="{{ $loop->iteration }}" type="submit" class="btn btn-danger" >Excluir</button>
+</form>
 @empty		
-		<p class="text-center">Não existem comentários para esse jogador</p>
+		<p class="text-center"><strong>Não existem comentários para esse jogador</strong></p>
 		@endforelse
 		<h4>Novo comentário</h4>
 <form action="{{ url("/comentario/".$jogador->id) }}" method="post">	
@@ -26,9 +34,9 @@
 		<div class="form-group">
 		<label for="comentario">Comentário</label>
 		<textarea name="comentario" id="comentario" col="40" row="2" class="form-control"></textarea>
-		<button type="submit" class="btn">Cadastrar</button>
 		</div>
-		</form>
+		<button type="submit" class="btn">Cadastrar</button>
+				</form>
 		
 		@endsection
 		
